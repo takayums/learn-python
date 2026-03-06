@@ -57,8 +57,12 @@ h2.greet()
 h2.description()
 
 
+# Class Properties and Object Properties
 class Car:
+    car_type = ""  # class properties
+
     def __init__(self, brand):
+        # object properties
         self.brand = brand
 
     def show(self):
@@ -66,4 +70,33 @@ class Car:
 
 
 c1 = Car("Ford")
+c1.color = "Blue"
 c1.show()
+print(c1.color)
+Car.car_type = "Toyota"
+print(Car.car_type)
+
+
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+    # str -> when print Object
+    def __str__(self):
+        return f"Name properties is {self.name} "
+
+    # class method
+    def greet(self):
+        print("Hello, my name is", self.name)
+
+    # method with parameter
+    def check_health(self, is_sick):
+        # modified properties
+        self.name = "People"
+        print(f"{self.name} is {"Sick" if is_sick == True else "Good"}")
+
+
+p1 = Person("Daniel")
+p1.greet()
+p1.check_health(False)
+print(p1)
